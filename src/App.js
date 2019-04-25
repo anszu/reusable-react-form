@@ -1,5 +1,5 @@
 import React from 'react'
-import UserContactForm from '../Forms/UserContactForm'
+import UserContactForm from './Forms/UserContactForm'
 import { Global, css } from '@emotion/core'
 import styled from '@emotion/styled'
 
