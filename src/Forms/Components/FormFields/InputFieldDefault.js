@@ -9,8 +9,6 @@ const InputFieldDefault = (props) => (
       <Input 
         name={props.name}
         type={props.type}
-        value={props.value}
-        onChange={props.onChange}
         required={props.reqired}/>
       { props.error && <Error error={props.error}/> }
     </div>
