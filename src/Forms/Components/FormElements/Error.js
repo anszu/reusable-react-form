@@ -1,7 +1,12 @@
 import React from 'react'
+import styled from '@emotion/styled'
+
+const StyledError = styled.div`
+    color: red;
+`
 
 const Error = (props) => (
-    <span>{props.error}</span>
+    <StyledError>{props.error}</StyledError>
 );
 
 export default Error;

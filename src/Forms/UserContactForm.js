@@ -9,7 +9,6 @@ import { InputProvider } from "./Context/InputContext";
 // validation
 // functional
 // check requirements
-// styling
 // github
 
 const UserContactForm = () => {
@@ -34,17 +33,16 @@ const UserContactForm = () => {
                     name="firstName"
                     label="First Name"
                     type="string"
-                    required="required"/>
+                    required="required"
+                    error="Please fill out field!"/>
                 <InputFieldDefault
                     name="lastName"
                     label="Last Name"
-                    type="string"
-                    required=""/>
+                    type="string"/>
                 <InputFieldDefault
                     name="areaCode"
                     label="Area Code"
-                    type="number"
-                    required=""/>
+                    type="number"/>
                 <InputFieldDefault
                     name="phoneNumber"
                     label="Phone Number"
@@ -52,7 +50,6 @@ const UserContactForm = () => {
                     required="required"/>
             </InputProvider>
             <Button value="Send" type="submit"/>
-            <Button value="Reset" type="reset"/>
             </form>
         );
 }
