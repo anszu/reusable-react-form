@@ -1,3 +1,5 @@
+// Label component
+
 import React from 'react'
 
 const Label = (props) => (

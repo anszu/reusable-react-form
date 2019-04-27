@@ -1,53 +1,62 @@
+// Example build of Form instance using FormElements, FormFields, Hooks, Context and Validation Module
+
 import React from 'react'
 import InputFieldDefault from './Components/FormFields/InputFieldDefault'
 import Button from './Components/FormElements/Button'
 import useForm from "./Hooks/useForm";
 import { InputProvider } from "./Context/InputContext";
-
-// TODO
-// solve required
-// validation
-// functional
-// check requirements
-// github
+import Validation from './Validation';
 
 const UserContactForm = () => {
-    // preset input values
-    const inputPresetValues = {
-        firstName: '',
-        lastName: '',
-        areaCode: '',
-        phoneNumber: 0
-    }
-
-    const { values, handleChange, handleSubmit } = useForm(inputPresetValues, submit);
+ 
+    const { values, errors, handleChange, handleSubmit } = useForm(submit, validate);
 
     function submit() {
         console.log(values);
     }
 
+    function validate() {
+        var isValid = new Validation();
+        const validationScheme = {
+            firstName: {
+                required: isValid.isEmpty(values.firstName)
+            },
+            areaCode: {
+                is_number: isNaN(values.areaCode)
+            },
+            phoneNumber: {
+                required: isValid.isEmpty(values.phoneNumber),
+                is_number: isNaN(values.phoneNumber)
+            }
+        }
+        return(isValid.mapErrors(validationScheme));
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
             <InputProvider value={{values: values, onChange: handleChange}}>
                 <InputFieldDefault
                     name="firstName"
-                    label="First Name"
+                    label="First Name*"
                     type="string"
                     required="required"
-                    error="Please fill out field!"/>
+                    error={errors.firstName}/>
                 <InputFieldDefault
                     name="lastName"
                     label="Last Name"
-                    type="string"/>
+                    type="string"
+                    error={errors.lastName}/>
                 <InputFieldDefault
                     name="areaCode"
                     label="Area Code"
-                    type="number"/>
+                    type="number"
+                    error={errors.areaCode}/>
                 <InputFieldDefault
                     name="phoneNumber"
-                    label="Phone Number"
+                    label="Phone Number*"
                     type="number"
-                    required="required"/>
+                    required="required"
+                    error={errors.phoneNumber}/>
             </InputProvider>
             <Button value="Send" type="submit"/>
             </form>

@@ -1,4 +1,5 @@
-// Used to control input elements by passing value and onChange handler
+// Context used to control input elements by passing value and onChange handler
+
 import React from "react";
 
 const InputContext = React.createContext({});

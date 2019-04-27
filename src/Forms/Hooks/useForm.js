@@ -1,16 +1,20 @@
-// pattern found on: https://upmostly.com/tutorials/using-custom-react-hooks-simplify-forms/
-// used to control input elements
+// Hook pattern found on: https://upmostly.com/tutorials/using-custom-react-hooks-simplify-forms/
+// used to control input elements and 
 // has to be adapted to also work for checkboxes, dropdowns and so on
 
 import { useState } from 'react';
+import { useEffect } from 'react';
 
-const useForm = (initialValues, callback) => {
+const useForm = (callback, validate) => {
 
-  const [values, setValues] = useState(initialValues);
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (event) => {
     if (event) event.preventDefault();
-      callback();
+    setIsSubmitting(true);
+    setErrors(validate(values));
   };
 
   const handleChange = (event) => {
@@ -18,10 +22,17 @@ const useForm = (initialValues, callback) => {
     setValues(values => ({...values, [event.target.name]: event.target.value}));
   };
 
+  useEffect(() => {
+    if (Object.keys(errors).length === 0  && isSubmitting) {
+      callback();
+    }
+  }, [errors]);
+
   return {
     handleChange,
     handleSubmit,
     values,
+    errors
   }
 };
 
