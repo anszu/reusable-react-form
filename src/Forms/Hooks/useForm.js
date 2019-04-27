@@ -1,5 +1,5 @@
 // Hook pattern found on: https://upmostly.com/tutorials/using-custom-react-hooks-simplify-forms/
-// used to control input elements and 
+// used to control input elements
 // has to be adapted to also work for checkboxes, dropdowns and so on
 
 import { useState } from 'react';

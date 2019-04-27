@@ -16,20 +16,21 @@ const UserContactForm = () => {
     }
 
     function validate() {
-        var isValid = new Validation();
-        const validationScheme = {
+        var validate= new Validation();
+        // test if invalid, if invalid == true
+        const errorScheme = {
             firstName: {
-                required: isValid.isEmpty(values.firstName)
+                required: validate.isEmpty(values.firstName)
             },
             areaCode: {
                 is_number: isNaN(values.areaCode)
             },
             phoneNumber: {
-                required: isValid.isEmpty(values.phoneNumber),
+                required: validate.isEmpty(values.phoneNumber),
                 is_number: isNaN(values.phoneNumber)
             }
         }
-        return(isValid.mapErrors(validationScheme));
+        return(validate.mapErrors(errorScheme));
     }
 
     return (
