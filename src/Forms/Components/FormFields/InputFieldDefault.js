@@ -16,7 +16,7 @@ const InputFieldDefault = (props) => (
         name={props.name}
         type={props.type}
         required={props.required}/>
-      { props.error && <Error error={props.error}/> }
+      <Error error={props.name}/>
     </StyledInputFieldDefault>
 );
 

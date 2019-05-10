@@ -35,29 +35,25 @@ const UserContactForm = () => {
 
     return (
         <form onSubmit={handleSubmit} noValidate>
-            <InputProvider value={{values: values, onChange: handleChange}}>
+            <InputProvider value={{values: values, onChange: handleChange, errors: errors}}>
                 <InputFieldDefault
                     name="firstName"
                     label="First Name*"
                     type="string"
-                    required="required"
-                    error={errors.firstName}/>
+                    required="required"/>
                 <InputFieldDefault
                     name="lastName"
                     label="Last Name"
-                    type="string"
-                    error={errors.lastName}/>
+                    type="string"/>
                 <InputFieldDefault
                     name="areaCode"
                     label="Area Code"
-                    type="number"
-                    error={errors.areaCode}/>
+                    type="number"/>
                 <InputFieldDefault
                     name="phoneNumber"
                     label="Phone Number*"
                     type="number"
-                    required="required"
-                    error={errors.phoneNumber}/>
+                    required="required"/>
             </InputProvider>
             <Button value="Send" type="submit"/>
             </form>
