@@ -1,11 +1,7 @@
 // Validation module providing public methods for validating inputs
+import { errorHints } from './ValidationErrors.js'
 
 const Validation = () => {
-    const errorHints = {
-        required: 'Please fill out field!',
-        is_number: 'Please use a numeric value!'
-    }
-
     return {
         isEmpty: function (value) {
             return value == undefined;
