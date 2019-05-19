@@ -9,14 +9,14 @@ import styled from '@emotion/styled'
 const StyledInputFieldDefault = styled.div`
     padding-bottom: .5rem;
 `
-const InputFieldDefault = (props) => (
+const InputFieldDefault = ({label, name, type, required}) => (
     <StyledInputFieldDefault>
-      { props.label && <Label label={props.label} for={props.name}/> }:
+      { label && <Label label={label} forInput={name}/> }:
       <Input 
-        name={props.name}
-        type={props.type}
-        required={props.required}/>
-      <Error inputName={props.name}/>
+        name={name}
+        type={type}
+        required={required}/>
+      <Error inputName={name}/>
     </StyledInputFieldDefault>
 );
 

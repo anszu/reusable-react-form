@@ -12,9 +12,9 @@ const StyledButton = styled.button`
     font-size: 1rem;
     padding: 0.5rem 0.5rem; 
 `
-const Button = (props) => (
+const Button = ({value}) => (
     <StyledButton type="submit">
-        {props.value}
+        {value}
     </StyledButton>
 );
 

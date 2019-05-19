@@ -12,14 +12,14 @@ const StyledInput = styled.input`
     margin: .25rem 0;
     padding: .25rem .25rem;  
 `
-const Input = (props) => (
+const Input = ({name, type, required}) => (
     <InputConsumer>{InputController => 
         <StyledInput
-            name={props.name}
-            type={props.type}
-            value={InputController.values[props.name] || ''}
+            name={name}
+            type={type}
+            value={InputController.values[name] || ''}
             onChange={InputController.onChange}
-            required={props.required}
+            required={required}
             />
     }
     </InputConsumer>
