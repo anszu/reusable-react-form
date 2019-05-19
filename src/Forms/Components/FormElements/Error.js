@@ -10,7 +10,7 @@ const StyledError = styled.div`
 
 const Error = (props) => (
     <InputConsumer>{InputController => 
-        <StyledError>{InputController.errors[props.error]}</StyledError>
+        <StyledError>{InputController.errors[props.inputName]}</StyledError>
     }
     </InputConsumer>
 );
