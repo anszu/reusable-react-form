@@ -10,4 +10,3 @@ This atomic approach doesn't use a reusable form component but instead tries to 
 
 Example usage in [User Contact Form](https://github.com/anszu/reusable-react-form/blob/master/src/Forms/UserContactForm.js). 
 
-Implementation [here](https://anszu.github.io/).
